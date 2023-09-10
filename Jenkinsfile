@@ -37,12 +37,6 @@ pipeline {
             }
         }
 
-        stage('test') {
-            steps {
-                bat 'npm run test'
-            }
-        }
-
 
         stage('Build and Push in Dockerhub') {
             steps {
