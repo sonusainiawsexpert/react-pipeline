@@ -50,6 +50,17 @@ pipeline {
             }
         }
 
+        stage ('Remove docker container and images') {
+            steps {
+                script {
+                    bat "docker stop ${CONTAINER_NAME}"
+                    bat "docker rm ${CONTAINER_NAME}"
+                    bat "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+                    bat "docker rmi ${IMAGE_NAME}:latest"
+                }
+            }
+        }
+
         stage('Deploy') {
             steps {
                 bat "docker run -d -p 8085:80 --restart always --name ${CONTAINER_NAME} ${IMAGE_NAME}"
