@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sonu Saini
+          Sonu Saini & Hitesh Saini
         </a>
       </header>
     </div>
